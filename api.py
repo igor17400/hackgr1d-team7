@@ -36,8 +36,23 @@ def simulation():
     #nome, endereco, dataNascimento, renda
     content = request.json
 
-    data = {'simulacoes': [{'proponente': {'tipoRelacaoSeguradoId': 1, 'nome': content['nome'], 'cpf': content['cpf'], 'dataNascimento': content['dataNascimento'],
-                                           'profissaoCbo': '2410-05', 'renda': content['renda'], 'sexoId': 1, 'uf': 'MG', 'declaracaoIRId': 1}, 'periodicidadeCobrancaId': 30, 'prazoCerto': 30}]}
+    data = {
+        'simulacoes': [{
+            'proponente': {
+                'tipoRelacaoSeguradoId': 1,
+                'nome': content['nome'],
+                'cpf': content['cpf'],
+                'dataNascimento': content['dataNascimento'],
+                'profissaoCbo': '2410-05',
+                'renda': content['renda'],
+                'sexoId': 1,
+                'uf': 'MG',
+                'declaracaoIRId': 1
+            },
+            'periodicidadeCobrancaId': 30,
+            'prazoCerto': 30
+        }
+        ]}
 
     response = requests.post(
         'https://gateway.gr1d.io/sandbox/mongeralaegon/v1/simulacao', headers=headers, params=params, data=json.dumps(data))
@@ -63,23 +78,23 @@ def proposal():
             'DT_INDEXACAO': today,
             'DADOS_PROPONENTE': {
                 'MATRICULA': '0',
-                'NOME': 'CENARIO DE TESTE 001',
-                'DT_NASCIMENTO': '1994-10-27',
-                'IDADE': '24',
-                'SEXO': 'MASCULINO',
-                'ESTADO_CIVIL': 'SOLTEIRO',
-                'CPF': '24011549061',
+                'NOME': content['NOME'],
+                'DT_NASCIMENTO': content['DT_NASCIMENTO'],
+                'IDADE': content['IDADE'],
+                'SEXO': content['SEXO'],
+                'ESTADO_CIVIL': content['ESTADO_CIVIL'],
+                'CPF': content['CPF'],
                 'TITULAR_CPF': 'true',
-                'EMAIL': 'TESTEPROPOSTA@GMAIL.COM',
+                'EMAIL': ['EMAIL'],
                 'RESIDE_BRASIL': 'true',
-                'RENDA_MENSAL': '5000.00',
-                'NUM_FILHOS': '0',
+                'RENDA_MENSAL': content['RENDA_MENSAL'],
+                'NUM_FILHOS': content['NUM_FILHOS'],
                 'PPE': 'false',
                 'DOCUMENTOS': {'DOCUMENTO': {
                     'NATUREZA_DOC': 'RG',
-                    'DOCUMENTO': '36969739-X',
+                    'DOCUMENTO': content['RG'],
                     'ORGAO_EXPEDIDOR': 'SSP',
-                    'DATA_EXPEDICAO': '2012-07-26',
+                    'DATA_EXPEDICAO': content['DATA_EXPEDICAO_RG'],
                 }},
                 'ENDERECOS': {'TP_CORRESPONDENCIA': 'RESIDENCIAL',
                               'ENDERECO': [{
@@ -112,7 +127,7 @@ def proposal():
             },
             'PLANOS': {'VL_TOTAL': '188.79', 'PLANO': [{
                 'CODIGO': '1780',
-                'NOME': 'DOEN\xc3\x87AS GRAVES',
+                'NOME': 'DOENÇAS GRAVES',
                 'VL_AP_INICIAL': '0.00',
                 'VL_PORTAB': '0.00',
                 'TP_TRIBUTACAO': 'NENHUM',
@@ -144,13 +159,13 @@ def proposal():
                 'PRAZO_CERTO': '0',
                 'FUNDOS': {'FUNDO': [{
                     'CODIGO': '10102',
-                    'NOME': 'MONGERAL AEGON RENDA FIXA PRIVATE TOP PREVID\xc3\x8aNCIA FUNDO DE INVESTIMENTO',
+                    'NOME': 'MONGERAL AEGON RENDA FIXA PRIVATE TOP PREVIDÊNCIA FUNDO DE INVESTIMENTO',
                     'PC_CONTRIB': '60.00',
                     'PC_APORTE': '0.00',
                     'PC_PORTAB': '0.00',
                 }, {
                     'CODIGO': '10105',
-                    'NOME': 'MONGERAL AEGON MULTIMERCADO PREVID\xc3\x8aNCIA',
+                    'NOME': 'MONGERAL AEGON MULTIMERCADO PREVIDÊNCIA',
                     'PC_CONTRIB': '40.00',
                     'PC_APORTE': '0.00',
                     'PC_PORTAB': '0.00',
@@ -174,43 +189,43 @@ def proposal():
                     {
                         'NUMERO': '1',
                         'QUESTAO': 'Encontra-se com algum problema de saude ou faz uso de algum medicamento atualmente? Em caso afirmativo, informar qual.',
-                        'RESPOSTA': 'false',
+                        'RESPOSTA': content['RESPOSTA_1'],
                         'OBS_RESPOSTA': '',
                     },
                     {
                         'NUMERO': '2',
                         'QUESTAO': 'Sofre ou ja sofreu de doencas do coracao, insuficiencia cardiaca, hipertensao arterial, problemas circulatorios ou cardiovasculares? Em caso afirmativo, informar quais e se ja foi submetido a alguma cirurgia.',
-                        'RESPOSTA': 'false',
+                        'RESPOSTA': content['RESPOSTA_2'],
                         'OBS_RESPOSTA': '',
                     },
                     {
                         'NUMERO': '3',
                         'QUESTAO': 'Sofre ou sofreu de deficiencia de orgaos, membros ou sentidos, incluindo doencas ortopedicas relacionadas a esforcos repetitivos (ler e Dort)',
-                        'RESPOSTA': 'false',
+                        'RESPOSTA': content['RESPOSTA_3'],
                         'OBS_RESPOSTA': '',
                     },
                     {
                         'NUMERO': '4',
                         'QUESTAO': 'Fez alguma cirurgia, biopsia ou esteve internado nos ultimos cinco anos?',
-                        'RESPOSTA': 'false',
+                        'RESPOSTA': content['RESPOSTA_4'],
                         'OBS_RESPOSTA': '',
                     },
                     {
                         'NUMERO': '5',
                         'QUESTAO': 'Esta afastado(a) do trabalho?',
-                        'RESPOSTA': 'false',
+                        'RESPOSTA': content['RESPOSTA_5'],
                         'OBS_RESPOSTA': '',
                     },
                     {
                         'NUMERO': '6',
                         'QUESTAO': 'Pratica esportes perigosos, tais como: para-quedismo, motociclismo (competicoes ou exibicoes), boxe, rodeio, alpinismo, automobilismo (competicoes ou exibicoes) e mergulho? Informar quais.',
-                        'RESPOSTA': 'false',
+                        'RESPOSTA': content['RESPOSTA_6'],
                         'OBS_RESPOSTA': '',
                     },
                     {
                         'NUMERO': '7',
                         'QUESTAO': 'E fumante? Em caso afirmativo, informar a quantidade media de cigarros por dia.',
-                        'RESPOSTA': 'false',
+                        'RESPOSTA': content['RESPOSTA_7'],
                         'OBS_RESPOSTA': '',
                     },
                 ]},
