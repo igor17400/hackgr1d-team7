@@ -110,7 +110,7 @@ def display_imoveis():
 
 
 ### DISPLAY
-# display_users()
-# display_chats()
-# display_imoveis()
+display_users()
+display_chats()
+display_imoveis()
 

@@ -1,0 +1,1 @@
+web: flask db upgrade; flask translate compile; gunicorn bot-wpp/bot:app

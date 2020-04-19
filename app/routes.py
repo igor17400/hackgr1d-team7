@@ -174,13 +174,11 @@ def bot():
             db.session.commit() 
 
             ## add chat
-            u = User.query.get(1)
             cs = ChatStage(estagio_usuario='name_stage', author=u)
             db.session.add(cs) 
             db.session.commit() 
 
             ## add imovel
-            u = User.query.get(1)
             im = Imovel(cep='temp_cep', tipo_imovel='temp_tipo', num_casa='temp_num', valor='temp_valor', proprietario=u)
             db.session.add(im)
             db.session.commit()
