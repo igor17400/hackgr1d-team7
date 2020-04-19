@@ -1,5 +1,5 @@
 from app import db
-from app.models import User, ChatStage, Imovel
+from app.models import User, ChatStage, Imovel, SeguroFamilia
 
 ### USERS
 def add_user():
@@ -88,6 +88,50 @@ def display_imoveis():
         print(i.id, i.cep, i.tipo_imovel, i.num_casa, i.valor, i.proprietario.username)
 
 
+### Infos Pessoais
+def add_infos_pessoais():
+    u = User.query.get(1)
+    sf = SeguroFamilia(data_nascimento='temp_data_nascimento', sexo='temp_sexo', cep='temp_cep', problema_de_saude='temp_problema_de_saude', doencas='temp_doencas', deficiencia='temp_deficiencia', user_infos=u)
+    db.session.add(sf)
+    db.session.commit()
+
+def change_info_data_nascimento():
+    sf = SeguroFamilia.query.filter_by(data_nascimento='temp_data_nascimento').first() 
+    sf.data_nascimento = '10/09/1997'
+    db.session.commit() 
+
+def change_info_cep():
+    sf = SeguroFamilia.query.filter_by(cep='temp_cep').first() 
+    sf.cep = '71680365'
+    db.session.commit() 
+
+def change_info_problema_de_saude():
+    sf = SeguroFamilia.query.filter_by(problema_de_saude='temp_problema_de_saude').first() 
+    sf.cep = 'Tenho Asma'
+    db.session.commit() 
+
+def change_info_doencas():
+    sf = SeguroFamilia.query.filter_by(doencas='temp_doencas').first() 
+    sf.doencas = 'Sofro com insuficiencia cardiaca'
+    db.session.commit() 
+
+def change_info_deficiencia():
+    sf = SeguroFamilia.query.filter_by(deficiencia='temp_deficiencia').first() 
+    sf.deficiencia = 'Possuo doença ortopédica'
+    db.session.commit() 
+
+def delete_info_pessoais():
+    segurofamilia = SeguroFamilia.query.all()
+    for i in segurofamilia:
+        db.session.delete(i)
+    db.session.commit()
+
+def display_infos():
+    segurofamilia = SeguroFamilia.query.all()
+    for i in segurofamilia:
+        print(i.id, i.user_infos.username, i.data_nascimento, i.sexo,  i.cep, i.problema_de_saude, i.doencas, i.deficiencia)
+
+
 # change_user_name()
 
 # change_chat_name()
@@ -102,15 +146,19 @@ def display_imoveis():
 # delete_user()
 # delete_chats()
 # delete_imovel()
+# delete_info_pessoais()
 
 ### ADD
 # add_user()
 # add_chat()
 # add_imovel()
+# add_infos_pessoais()
 
 
 ### DISPLAY
-# display_users()
-# display_chats()
-# display_imoveis()
+display_users()
+display_chats()
+display_imoveis()
+display_infos()
+
 
