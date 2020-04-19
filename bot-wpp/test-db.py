@@ -143,10 +143,10 @@ def display_infos():
 # change_imovel_valor()
 
 ### REMOVE
-# delete_user()
-# delete_chats()
-# delete_imovel()
-# delete_info_pessoais()
+delete_user()
+delete_chats()
+delete_imovel()
+delete_info_pessoais()
 
 ### ADD
 # add_user()
