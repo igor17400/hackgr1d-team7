@@ -13,7 +13,7 @@ Foi utilizado a linguagem Flask juntamente com a plataforma Twilio para desenvol
 
 - A partir dos dados obtidos dos clientes nas conversas com o chatbot aplicamos esses dados a API Procob da Gr1d para validação desses dados e obtenção de mais informações sobre os clientes. Consequentemente estamos gerando leads mais qualificados para os nossos seguradores. 
 
-- Utilizamos a API da Aegon seguros para ....
+- Utilizamos a API da Aegon seguros por permitir fazer simulações e submeter propostas de diversas categorias de produtos de seguros, dentre os quais assistência funerária, por invalidez, doenças graves, dentre outras, através da mesma interface. Essa abordagem facilita a retenção do cliente bem como processos de cross-selling.
 
 ## Imagens no chatbot 
 
