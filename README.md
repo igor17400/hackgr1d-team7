@@ -11,7 +11,7 @@ Foi utilizado a linguagem Flask juntamente com a plataforma Twilio para desenvol
 
 ## APIs
 
-- A partir dos dados obtidos dos clientes nas conversas com o chatbot aplicamos esses dados a API XXXXX da Gr1d para validação desses dados e obtenção de mais informações sobre os clientes. Consequentemente estamos gerando leads mais qualificados para os nossos seguradores. 
+- A partir dos dados obtidos dos clientes nas conversas com o chatbot aplicamos esses dados a API Procob da Gr1d para validação desses dados e obtenção de mais informações sobre os clientes. Consequentemente estamos gerando leads mais qualificados para os nossos seguradores. 
 
 - Utilizamos a API da Aegon seguros para ....
 
