@@ -17,6 +17,8 @@ Foi utilizado a linguagem Flask juntamente com a plataforma Twilio para desenvol
 
 ## Imagens no chatbot 
 
+Caso desejar ver um link explicando o bot: https://drive.google.com/open?id=1UhOynrKFMNujfE7rYTBSvaWe0sTHl7W5
+
 <img src="images/image1.jpeg"
      alt="Dialogo"
      width="200" 
