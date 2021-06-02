@@ -127,7 +127,7 @@ tqdm==4.36.1
 traitlets==4.3.3
 twilio==6.38.1
 txaio==20.1.1
-urllib3==1.24.2
+urllib3==1.26.5
 vincent==0.4.4
 virtualenv==20.0.18
 vpython==7.6.1
