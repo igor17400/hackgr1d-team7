@@ -54,7 +54,7 @@ jupyter==1.0.0
 jupyter-client==5.3.3
 jupyter-console==6.1.0
 jupyter-core==4.5.0
-jupyter-server-proxy==1.1.0
+jupyter-server-proxy==3.2.1
 jupyterlab==2.1.0
 jupyterlab-server==1.0.6
 kiwisolver==1.1.0
